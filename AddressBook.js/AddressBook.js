@@ -256,6 +256,14 @@ console.log("Welcome To AddressBook");
      return addressBookArray.filter((contact) => contact.state == state).length;
  }
  
+ /**
+  * Function to sort the array in asscending order.
+  */
+ function sortAddressBookByName(){
+     addressBookArray.sort((firstPerson, secondPerson) => (firstPerson.firstName).localeCompare(secondPerson.firstName));
+     console.log(addressBookArray);
+ }
+ 
  let firstContact = new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnatak", "591124", "91-944944190", "chetangavanali@gmail.com");
    let secondContact = new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "akash@gmail.com");
  let thirdContact = new Contact("Jp", "Doni", "Street", "Lasvegas", "Unitedstates", "876545", "96-1234567890", "jpdoni@gmail.com");
@@ -304,3 +312,6 @@ console.log("Welcome To AddressBook");
 
  console.log("\nNumber of Contacts residing in City : Belgaum = " + getCountOfContactsByCity("Belgaum"));
 console.log("\nNumber of Contacts residing in State : Maharashtra = " + getCountOfContactsByState("Maharashtra"));
+
+console.log("\nContacts In Alphabetical Order");
+sortAddressBookByName();
