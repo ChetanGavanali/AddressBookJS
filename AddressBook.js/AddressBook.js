@@ -124,15 +124,67 @@ console.log("Welcome To AddressBook");
   * Using array to store the contacts.
   * We are using the push method to add the contact in the array
   */
- let addressBookArray = new Array();
+  let addressBookArray = new Array();
+ 
+  /**
+   * Function to check if the contact exists in array.
+   * @param {*} firstName - We will pass the first name of the contact to edit
+   * @param {*} lastName - We will pass the last name of the contact to edit
+   * @returns Will return true if contact exists
+   */
+  function contactExists(firstName, lastName) {
+      return addressBookArray.some(contact => contact.firstName == firstName && contact.lastName == lastName);
+  }
+  
+  /**
+   *  Function to edit the contact
+   * @param {} firstName - We will pass the first name of the contact to edit
+   * @param {*} lastName - We will pass the last name of the contact to edit
+   * @param {*} property - will pass the parameter to edit
+   * @param {*} newValue - New value to edit
+   */
+  function editContact(firstName, lastName, property, newValue) {
+      if (contactExists(firstName, lastName)) {
+          switch (property) {
+              case "address":
+                  addressBookArray.find((contact) => contact.firstName == firstName).address = newValue;
+                  break;
+              case "city":
+                  addressBookArray.find((contact) => contact.firstName == firstName).city = newValue;
+                  break;
+              case "state":
+                  addressBookArray.find((contact) => contact.firstName == firstName).state = newValue;
+                  break;
+              case "zip":
+                  addressBookArray.find((contact) => contact.firstName == firstName).zip = newValue;
+                  break;
+              case "phoneNumber":
+                  addressBookArray.find((contact) => contact.firstName == firstName).phoneNumber = newValue;
+                  break;
+              case "email":
+                  addressBookArray.find((contact) => contact.firstName == firstName).email = newValue;
+                  break;
+              default:
+                  console.log("Enter valid property");
+          }
+      }
+      else {
+          console.log("Contact Does Not Exist");
+      }
+  }
+ 
  try{
      addressBookArray.push(new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetangavanali@gmail.com"));
  }catch(e){
      console.error(e);
  }
  try{
-     addressBookArray.push(new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "411201", "91-8881238888", "akash@gmail.com"));
+     addressBookArray.push(new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "aksah@gmail.com"));
  }catch(e){
      console.error(e);
  }
+ console.log(addressBookArray);
+ 
+ console.log("\nAfter Editing Contact")
+ editContact("Chetan", "Gavanali", "address", "Banglore");
  console.log(addressBookArray);
