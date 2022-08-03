@@ -120,10 +120,19 @@ console.log("Welcome To AddressBook");
      }
  }
  
+ /**
+  * Using array to store the contacts.
+  * We are using the push method to add the contact in the array
+  */
+ let addressBookArray = new Array();
  try{
-     let contact = new Contact("Chetan", "Gavanali", "Belgaum", "Karnataka", 591124, "91-9449441490", "chetangavanali@gmail.com");
-     console.log(contact.toString());
+     addressBookArray.push(new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetangavanali@gmail.com"));
+ }catch(e){
+     console.error(e);
  }
- catch(e){
-     console.log(e);
+ try{
+     addressBookArray.push(new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "411201", "91-8881238888", "akash@gmail.com"));
+ }catch(e){
+     console.error(e);
  }
+ console.log(addressBookArray);
