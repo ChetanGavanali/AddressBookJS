@@ -185,14 +185,24 @@ console.log("Welcome To AddressBook");
          console.log("Contact Does Not Exist");
      }
  }
+ /**
+  * Function to count the contacts in the array
+  * We have used the reduce method to call the specified callback function for all the elements in an array.
+  * @param {*} count - count of contact
+  * @returns - total count
+  */
+ function getCountOfContacts(count) {
+     count += 1;
+     return count;
+ }
  
  try{
-     addressBookArray.push(new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetan@gmail.com"));
+     addressBookArray.push(new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetangavanali@gmail.com"));
  }catch(e){
      console.error(e);
  }
  try{
-     addressBookArray.push(new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "Akash@gmail.com"));
+     addressBookArray.push(new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "akash@gmail.com"));
  }catch(e){
      console.error(e);
  }
@@ -205,3 +215,5 @@ console.log("Welcome To AddressBook");
  console.log("\nAfter Deleting Contact");
  deleteContact("Akash", "Patil");
  console.log(addressBookArray);
+ 
+ console.log("\nCount of Contacts : " + addressBookArray.reduce(getCountOfContacts, 0));
