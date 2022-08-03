@@ -212,25 +212,40 @@ console.log("Welcome To AddressBook");
   * @param {*} city - we will pass the city to search for contacts
   * @returns - contacts with specific city
   */
- function searchContactByCity(city) {
-     return addressBookArray.filter((contact) => contact.city == city);
-   }
+  function searchContactByCity(firstName, city) {
+     return addressBookArray.filter((contact) => contact.city == city && contact.firstName == firstName);
+ }
    
    /**
     * Function to search contact by state
     * @param {*} state -  we will pass the state to search for contacts
     * @returns - contacts with specific state
     */
- function searchContactByState(state) {
-     return addressBookArray.filter((contact) => contact.state == state);
-   }
+    function searchContactByState(firstName, state) {
+     return addressBookArray.filter((contact) => contact.state == state && contact.firstName == firstName);
+ }
  
-   let firstContact = new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetangavanali@gmail.com");
+ /**
+  * Function to view contact by city
+  */
+ function viewContactsByCity(city){
+     return addressBookArray.filter((contact) => contact.city == city);
+ }
+ 
+ function viewContactsByState(state){
+     return addressBookArray.filter((contact) => contact.state == state);
+ }
+ 
+ let firstContact = new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnatak", "591124", "91-944944190", "chetangavanali@gmail.com");
    let secondContact = new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "akash@gmail.com");
+ let thirdContact = new Contact("Jp", "Doni", "Street", "Lasvegas", "Unitedstates", "876545", "96-1234567890", "jpdoni@gmail.com");
+ let fourthContact = new Contact("Vishal", "Gunjikar", "Khalifa", "AbuDhabi", "Arab", "457893", "97-0987654321", "vishal@gmail.com");
  
  try {
      addressBookArray.push(firstContact);
      addressBookArray.push(secondContact);
+     addressBookArray.push(thirdContact);
+     addressBookArray.push(fourthContact);
  } catch (e) {
      console.error(e);
  }
@@ -254,8 +269,15 @@ console.log("Welcome To AddressBook");
  }
  console.log(addressBookArray);
  
- console.log("\nSearch Contact By City");
- console.log(searchContactByCity("Belgaum"));
+ console.log("\nSearch Chetan In City - Belgaum");
+ console.log(searchContactByCity("VChetan", "Dombivali"));
  
- console.log("\nSearch Contact By State");
- console.log(searchContactByState("Karnataka"));
+ console.log("\nSearch Akash In State - Maharashtra");
+ console.log(searchContactByState("Akash", "Maharashtra"));
+ 
+ 
+ console.log("\nView Contacts By City : AbuDhabi \n" );
+ console.log(viewContactsByCity("AbuDhabi"));
+ 
+ console.log("\nView Contacts By State : UnitedStates \n" );
+ console.log(viewContactsByState("Unitedstates"));
