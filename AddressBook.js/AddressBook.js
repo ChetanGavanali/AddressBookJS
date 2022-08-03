@@ -207,8 +207,26 @@ console.log("Welcome To AddressBook");
          throw "Contact is Present in the Address Book";
  }
  
- let firstContact = new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetangavanali@gmail.com");
- let secondContact = new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "akash@gmail.com");
+ /**
+  *  Function to search contact by city
+  * @param {*} city - we will pass the city to search for contacts
+  * @returns - contacts with specific city
+  */
+ function searchContactByCity(city) {
+     return addressBookArray.filter((contact) => contact.city == city);
+   }
+   
+   /**
+    * Function to search contact by state
+    * @param {*} state -  we will pass the state to search for contacts
+    * @returns - contacts with specific state
+    */
+ function searchContactByState(state) {
+     return addressBookArray.filter((contact) => contact.state == state);
+   }
+ 
+   let firstContact = new Contact("Chetan", "Gavanali", "Belgaum", "Belgaum", "Karnataka", "591124", "91-9449441490", "chetangavanali@gmail.com");
+   let secondContact = new Contact("Akash", "Patil", "Dombivali", "Dombivali", "Maharashtra", "421201", "91-8888123888", "akash@gmail.com");
  
  try {
      addressBookArray.push(firstContact);
@@ -235,3 +253,9 @@ console.log("Welcome To AddressBook");
      console.error(e);
  }
  console.log(addressBookArray);
+ 
+ console.log("\nSearch Contact By City");
+ console.log(searchContactByCity("Belgaum"));
+ 
+ console.log("\nSearch Contact By State");
+ console.log(searchContactByState("Karnataka"));
